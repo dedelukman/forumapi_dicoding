@@ -6,13 +6,15 @@ describe('AddReplyUseCase', () => {
   it('should orchestrating the add reply action correctly', async () => {
     // Arrange
     const useCasePayload = {
-      content: 'lukman',
+      commentId: 'comment-232',
+      content: 'reply content',
+      owner: 'user-232',
     };
 
     const mockAddedReply = new AddedReply({
       id: 'lukman',
       content: useCasePayload.content,
-      owner: 'lukman',
+      owner: useCasePayload.owner,
     });
 
     const mockReplyRepository = new ReplyRepository();
@@ -33,12 +35,14 @@ describe('AddReplyUseCase', () => {
       new AddedReply({
         id: 'lukman',
         content: useCasePayload.content,
-        owner: 'lukman',
+        owner: useCasePayload.owner,
       })
     );
     expect(mockReplyRepository.addReply).toBeCalledWith(
       new AddReply({
+        commentId: useCasePayload.commentId,
         content: useCasePayload.content,
+        owner: useCasePayload.owner,
       })
     );
   });
