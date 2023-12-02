@@ -7,12 +7,15 @@ describe('AddCommentUseCase', () => {
     // Arrange
     const useCasePayload = {
       content: 'lukman',
+      threadId: 'lukman',
+      owner: 'lukman',
     };
 
     const mockAddedComment = new AddedComment({
       id: 'lukman',
       content: useCasePayload.content,
-      owner: 'lukman',
+      threadId: useCasePayload.threadId,
+      owner: useCasePayload.owner,
     });
 
     const mockCommentRepository = new CommentRepository();
@@ -39,6 +42,8 @@ describe('AddCommentUseCase', () => {
     expect(mockCommentRepository.addComment).toBeCalledWith(
       new AddComment({
         content: useCasePayload.content,
+        threadId: useCasePayload.threadId,
+        owner: useCasePayload.owner,
       })
     );
   });

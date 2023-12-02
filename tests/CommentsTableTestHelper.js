@@ -3,8 +3,8 @@ const pool = require('../src/Infrastructures/database/postgres/pool');
 
 const CommentsTableTestHelper = {
   async addComment({
-    id = 'lukman-comment',
-    threadId = 'lukman-thread',
+    id = 'comment-232',
+    threadId = 'thread-232',
     owner = 'user-123',
     content = 'lukman',
     date = '2023-11-16T07:00:00.000Z',

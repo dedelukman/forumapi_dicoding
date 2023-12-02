@@ -18,6 +18,8 @@ describe('a AddComment entities', () => {
     // Arrange
     const payload = {
       content: true,
+      threadId: 343,
+      owner: [],
     };
 
     // Action and Assert
@@ -30,6 +32,8 @@ describe('a AddComment entities', () => {
     // Arrange
     const payload = {
       content: 'lukman',
+      threadId: 'lukman',
+      owner: 'lukman',
     };
 
     // Action
